@@ -155,11 +155,21 @@ class _HomepageSliverState extends State<HomepageSliver> {
             ),
           ),
           SliverToBoxAdapter(
-            child: Text(
-              "Recent Transactions",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+            child: Padding(
+              padding: const EdgeInsets.only(left: 10),
+              child: Text(
+                "Recent Transactions",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+              ),
             ),
           ),
+          SliverList(
+              delegate: SliverChildBuilderDelegate(
+            (context, index) {
+              return _transactionwidget(transaction: index + 1);
+            },
+            childCount: 20, // Number of transactions
+          )),
 
           SliverFillRemaining()
         ],
@@ -185,5 +195,27 @@ Widget _quickActionButton({
               fontSize: 12,
               fontWeight: FontWeight.bold))
     ],
+  );
+}
+
+Widget _transactionwidget({required int transaction}) {
+  return Card(
+    child: ListTile(
+      leading: transaction % 2 == 0
+          ? CircleAvatar(
+              child: Icon(
+                Icons.arrow_upward,
+                color: Colors.green,
+              ),
+            )
+          : CircleAvatar(
+              child: Icon(Icons.arrow_downward, color: Colors.red),
+            ),
+      title: Text("Transaction ${transaction.toString()}"),
+      subtitle: Text("Transaction detail ${transaction.toString()}"),
+      trailing: Text("\$100.00",
+          style: TextStyle(
+              color: transaction % 2 == 0 ? Colors.green : Colors.red)),
+    ),
   );
 }
