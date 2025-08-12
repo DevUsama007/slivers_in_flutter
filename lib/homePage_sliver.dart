@@ -171,7 +171,60 @@ class _HomepageSliverState extends State<HomepageSliver> {
             childCount: 20, // Number of transactions
           )),
 
-          SliverFillRemaining()
+          SliverFillRemaining(
+            child: Container(
+              width: MediaQuery.of(context).size.width,
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      height: 50,
+                    ),
+                    Icon(
+                      Icons.lightbulb,
+                      size: 35,
+                      color: Colors.deepPurple,
+                    ),
+                    Text(
+                      'Explore New Features',
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      'Stay Tuned For Exciting Updates and Improvements',
+                      style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black.withOpacity(0.3)),
+                      textAlign: TextAlign.center,
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.deepPurple,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                        // style: ButtonStyle(
+
+                        //     backgroundColor:
+                        //         WidgetStatePropertyAll(Colors.deepPurple)),
+                        onPressed: () {},
+                        child: Text(
+                          'Learn More',
+                          style: TextStyle(
+                              color: Colors.white, fontWeight: FontWeight.w500),
+                        ))
+                  ],
+                ),
+              ),
+            ),
+          )
         ],
       ),
     );
