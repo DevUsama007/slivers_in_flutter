@@ -15,11 +15,17 @@ This project demonstrates how to use:
 ---
 
 ## 🚀 Features in This Project
+
 📌 **CustomScrollView** as the main scroll container
+
 📌 **Multiple sliver widgets** combined in one scroll view
+
 📌 **Image backgrounds** in SliverAppBar
+
 📌 **Lazy loading** for performance optimization
+
 📌 **Responsive layouts** for different screen sizes
+
 
 ---
 
