@@ -37,8 +37,9 @@ This project demonstrates how to use:
    cd your-repo-name
 
 🎯 Why This Project?
-Slivers are one of Flutter’s most powerful but underused features.
-With this repository, you can:
+
+**Slivers are one of Flutter’s most powerful but underused features.
+With this repository,** you can:
 
 📌 Learn how each sliver works
 
