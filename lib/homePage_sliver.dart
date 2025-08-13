@@ -8,6 +8,15 @@ class HomepageSliver extends StatefulWidget {
 }
 
 class _HomepageSliverState extends State<HomepageSliver> {
+  List<String> days = [
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+    'Sunday'
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,19 +24,20 @@ class _HomepageSliverState extends State<HomepageSliver> {
       body: CustomScrollView(
         slivers: [
           // SliverAppBar(
-          //   // pinned: true, //pined the app bar at the top
+          //   pinned: true, //pined the app bar at the top
           //   floating: true,
           //   centerTitle: true,
           //   expandedHeight: 200.0,
+
           //   backgroundColor: Colors.black,
           //   // toolbarHeight: 100, //set the height of the app bar
           //   flexibleSpace: FlexibleSpaceBar(
           //     title: const Text(
-          //       'Sliver App Bar',
+          //       'FlutterDevUsama',
           //       style: TextStyle(
           //         color: Colors.white,
           //         fontWeight: FontWeight.bold,
-          //         fontSize: 20,
+          //         fontSize: 16,
           //       ),
           //     ),
           //     background: Image.network(
@@ -36,6 +46,7 @@ class _HomepageSliverState extends State<HomepageSliver> {
           //     ),
           //   ),
           // ),
+
           SliverAppBar(
             // pinned: true,
             flexibleSpace: FlexibleSpaceBar(
@@ -73,12 +84,13 @@ class _HomepageSliverState extends State<HomepageSliver> {
               ),
             ),
           ),
+
           SliverAppBar(
             // floating: true,
             // centerTitle: true,
             // toolbarHeight: 100,
             expandedHeight: 200.0,
-            // pinned: true,
+            pinned: true,
             backgroundColor: Colors.purple,
             flexibleSpace: FlexibleSpaceBar(
               background: Column(
@@ -114,6 +126,7 @@ class _HomepageSliverState extends State<HomepageSliver> {
               centerTitle: false,
             ),
           ),
+
           SliverAppBar(
             toolbarHeight: 160,
             pinned: true,
@@ -170,7 +183,37 @@ class _HomepageSliverState extends State<HomepageSliver> {
             },
             childCount: 20, // Number of transactions
           )),
-
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.only(left: 10, top: 10, bottom: 10),
+              child: Text(
+                "Days of the Week",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+              ),
+            ),
+          ),
+          SliverGrid(
+              delegate: SliverChildBuilderDelegate(
+                childCount: days.length,
+                (context, index) {
+                  return Card(
+                    color: Colors.deepPurple,
+                    child: Container(
+                      child: Center(
+                          child: Text(
+                        days[index],
+                        style: TextStyle(fontSize: 14, color: Colors.white),
+                      )),
+                    ),
+                  );
+                },
+              ),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                childAspectRatio: 1,
+                mainAxisSpacing: 4,
+                crossAxisSpacing: 4,
+              )),
           SliverFillRemaining(
             child: Container(
               width: MediaQuery.of(context).size.width,
@@ -224,7 +267,7 @@ class _HomepageSliverState extends State<HomepageSliver> {
                 ),
               ),
             ),
-          )
+          ),
         ],
       ),
     );
